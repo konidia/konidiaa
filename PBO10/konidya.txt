@@ -1,0 +1,103 @@
+Microsoft Windows [Version 10.0.19045.3803]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\asus>cd\
+
+C:\>c:
+
+C:\>cd xampp
+
+C:\xampp>cd mysql
+
+C:\xampp\mysql>cd bin
+
+C:\xampp\mysql\bin>mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 8
+Server version: 10.4.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [farmasi]> create database apotek;
+Query OK, 1 row affected (0.004 sec)
+
+MariaDB [farmasi]> use apotek;
+Database changed
+MariaDB [apotek]> create tabel obat(
+    -> id int primary key auto_increment,
+    -> kdobat varcher(10) unique,
+    -> nama varcher(100),
+    -> berat varcher(10),
+    -> bentuk varcher(50));
+
+Query OK, 0 rows affected (0.152 sec)
+
+MariaDB [apotek]> show tables;
++------------------+
+| Tables_in_apotek |
++------------------+
+| obat             |
++------------------+
+1 row in set (0.002 sec)
+
+MariaDB [apotek]> insert into obat(kdobat,nama,berat,bentuk)values('1234','apethamin','10mg','tablet');
+Query OK, 1 row affected (0.178 sec)
+
+MariaDB [apotek]> select*from obat;
++----+--------+-----------+-------+--------+
+| id | kdobat | nama      | berat | bentuk |
++----+--------+-----------+-------+--------+
+|  1 | 1234   | apethamin | 10mg  | tablet |
++----+--------+-----------+-------+--------+
+1 row in set (0.001 sec)
+
+MariaDB [apotek]> delete from obat where id='1';
+Query OK, 1 row affected (0.007 sec)
+
+MariaDB [apotek]> insert into obat(kdobat,nama,berat,bentuk)values('001','paracetamol','10mg','tablet')
+    -> \c
+MariaDB [apotek]>  insert into obat(kdobat,nama,berat,bentuk)values('001','paracetamol','10mg','tablet');
+Query OK, 1 row affected (0.008 sec)
+
+MariaDB [apotek]>  insert into obat(kdobat,nama,berat,bentuk)values('002','bodrek','6mg','tablet');
+Query OK, 1 row affected (0.009 sec)
+
+MariaDB [apotek]> insert into obat(kdobat,nama,berat,bentuk)values('003','promagh','15mg','tablet');
+Query OK, 1 row affected (0.009 sec)
+
+MariaDB [apotek]> insert into obat(kdobat,nama,berat,bentuk)values('004','morfin','8mg','tablet');
+Query OK, 1 row affected (0.007 sec)
+
+MariaDB [apotek]> insert into obat(kdobat,nama,berat,bentuk)values('005','xanax','5mg','tablet');
+Query OK, 1 row affected (0.007 sec)
+
+MariaDB [apotek]> select*from obat;
++----+--------+-------------+-------+--------+
+| id | kdobat | nama        | berat | bentuk |
++----+--------+-------------+-------+--------+
+|  1 | 001    | paracetamol | 10mg  | tablet |
+|  2 | 002    | bodrek      | 6mg   | tablet |
+|  3 | 003    | promagh     | 15mg  | tablet |
+|  4 | 004    | morfin      | 8mg   | tablet |
+|  5 | 005    | xanax       | 5mg   | tablet |
++----+--------+-------------+-------+--------+
+5 rows in set (0.001 sec)
+
+MariaDB [apotek]> delete from obat where id='6';
+Query OK, 1 row affected (0.007 sec)
+
+MariaDB [apotek]> select*from obat;
++----+--------+-------------+-------+--------+
+| id | kdobat | nama        | berat | bentuk |
++----+--------+-------------+-------+--------+
+|  1 | 001    | paracetamol | 10mg  | tablet |
+|  2 | 002    | bodrek      | 6mg   | tablet |
+|  3 | 003    | promagh     | 15mg  | tablet |
+|  4 | 004    | morfin      | 8mg   | tablet |
++----+--------+-------------+-------+--------+
+4 rows in set (0.001 sec)
+
+MariaDB [apotek]>
